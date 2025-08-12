@@ -1,190 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Win the Stars - Playtest Feedback</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
-      color: #eee;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Win the Stars Playtest Feedback</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: #1a1a1a;
+    padding: 20px 30px; /* Increased right padding for symmetry */
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(51, 153, 255, 0.5);
+  }
+  h1 {
+    text-align: center;
+    color: #3399ff;
+  }
+  input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+  }
+  input, textarea {
+    background-color: #222;
+    color: white;
+  }
+  button {
+    background-color: #3399ff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background-color: #267acc;
+  }
+</style>
+<script>
+  function checkPassword() {
+    const password = prompt("Enter the password to access this page:");
+    if (password !== "galaxy") {
+      alert("Incorrect password.");
+      window.location.href = "about:blank";
     }
-
-    h1 {
-      text-align: center;
-      color: #3399ff;
-      margin-bottom: 1rem;
-    }
-
-    form {
-      background: #1f1f1f;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(51, 153, 255, 0.15);
-    }
-
-    label {
-      display: block;
-      margin: 14px 0 6px;
-      font-weight: 600;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 8px;
-      border: 1.5px solid #444;
-      background: #2a2a2a;
-      color: #ddd;
-      font-size: 1em;
-      transition: border-color 0.3s ease;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #888;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #3399ff;
-      box-shadow: 0 0 6px #3399ff;
-    }
-
-    button {
-      margin-top: 22px;
-      padding: 14px;
-      font-weight: 700;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #3399ff, #2a82e6);
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(51, 153, 255, 0.6);
-      transition: background 0.4s ease;
-    }
-
-    button:hover {
-      background: linear-gradient(135deg, #2a82e6, #3399ff);
-    }
-  </style>
+  }
+  window.onload = checkPassword;
+</script>
 </head>
 <body>
-  <div id="protected-content" style="display:none;">
-    <h1>Win the Stars - Playtest Feedback</h1>
+  <div class="container">
+    <h1>Playtest Feedback</h1>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Name (optional):</label>
+      <input type="text" id="name" name="name">
 
-    <form action="https://formspree.io/f/xldlznab" method="POST" novalidate>
-      <label for="name">Name (optional)</label>
-      <input type="text" name="name" id="name" placeholder="Your name" />
+      <label for="enjoyment">What did you enjoy most?</label>
+      <textarea id="enjoyment" name="enjoyment" rows="3"></textarea>
 
-      <label for="experience">Gaming Experience</label>
-      <select name="experience" id="experience" required>
-        <option value="" disabled selected>-- Select --</option>
-        <option>Beginner</option>
-        <option>Intermediate</option>
-        <option>Expert</option>
-      </select>
+      <label for="improvements">What could be improved?</label>
+      <textarea id="improvements" name="improvements" rows="3"></textarea>
 
-      <label for="enjoyment">How much did you enjoy the game? (1=Low, 5=High)</label>
-      <select name="enjoyment" id="enjoyment" required>
-        <option value="" disabled selected>-- Select --</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="bugs">Any bugs or issues?</label>
+      <textarea id="bugs" name="bugs" rows="3"></textarea>
 
-      <label for="controls">Were the controls easy to understand and use?</label>
-      <textarea
-        name="controls"
-        id="controls"
-        rows="2"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="difficulty">Was the game challenging, too easy, or too hard?</label>
-      <textarea
-        name="difficulty"
-        id="difficulty"
-        rows="2"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="visuals">How did you find the graphics/art style?</label>
-      <textarea
-        name="visuals"
-        id="visuals"
-        rows="2"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="audio">Was the audio/music appropriate and enjoyable?</label>
-      <textarea
-        name="audio"
-        id="audio"
-        rows="2"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="bugs">Did you encounter any bugs or glitches? Please describe.</label>
-      <textarea
-        name="bugs"
-        id="bugs"
-        rows="3"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="improvements">What would you improve or change?</label>
-      <textarea
-        name="improvements"
-        id="improvements"
-        rows="3"
-        placeholder="Your thoughts here..."
-      ></textarea>
-
-      <label for="replay">Would you play this game again? Why or why not?</label>
-      <textarea
-        name="replay"
-        id="replay"
-        rows="3"
-        placeholder="Your thoughts here..."
-      ></textarea>
+      <label for="other">Other feedback:</label>
+      <textarea id="other" name="other" rows="3"></textarea>
 
       <button type="submit">Submit Feedback</button>
     </form>
   </div>
-
-  <script>
-    (function () {
-      const correctPassword = "galaxy";
-      function askPassword() {
-        const pass = prompt(
-          "Please enter the password to access the Win the Stars feedback form:"
-        );
-        if (pass === null) {
-          alert("Password is required to proceed.");
-          askPassword();
-        } else if (pass === correctPassword) {
-          document.getElementById("protected-content").style.display = "block";
-        } else {
-          alert("Incorrect password. Try again.");
-          askPassword();
-        }
-      }
-      askPassword();
-    })();
-  </script>
 </body>
 </html>
-
-
