@@ -144,4 +144,45 @@
         placeholder="Your thoughts here..."
       ></textarea>
 
-      <label for="improvements">What would you improve or change?</la
+      <label for="improvements">What would you improve or change?</label>
+      <textarea
+        name="improvements"
+        id="improvements"
+        rows="3"
+        placeholder="Your thoughts here..."
+      ></textarea>
+
+      <label for="replay">Would you play this game again? Why or why not?</label>
+      <textarea
+        name="replay"
+        id="replay"
+        rows="3"
+        placeholder="Your thoughts here..."
+      ></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const correctPassword = "winthestars!";
+      function askPassword() {
+        const pass = prompt(
+          "Please enter the password to access the Win the Stars feedback form:"
+        );
+        if (pass === null) {
+          alert("Password is required to proceed.");
+          askPassword();
+        } else if (pass === correctPassword) {
+          document.getElementById("protected-content").style.display = "block";
+        } else {
+          alert("Incorrect password. Try again.");
+          askPassword();
+        }
+      }
+      askPassword();
+    })();
+  </script>
+</body>
+</html>
