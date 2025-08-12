@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Win the Stars - Playtest Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #00ffcc;
+    }
+    form {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 4px;
+      font-weight: bold;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #00cca3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Win the Stars - Playtest Feedback</h1>
+
+  <form action="https://formspree.io/f/xldlznab" method="POST">
+    
+    <label for="name">Name (optional)</label>
+    <input type="text" name="name" id="name">
+
+    <label for="experience">Gaming Experience</label>
+    <select name="experience" id="experience" required>
+      <option value="">-- Select --</option>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Expert</option>
+    </select>
+
+    <label for="enjoyment">How much did you enjoy the game? (1=Low, 5=High)</label>
+    <select name="enjoyment" id="enjoyment" required>
+      <option value="">-- Select --</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+
+    <label for="controls">Were the controls easy to understand and use?</label>
+    <textarea name="controls" id="controls" rows="2"></textarea>
+
+    <label for="difficulty">Was the game challenging, too easy, or too hard?</label>
+    <textarea name="difficulty" id="difficulty" rows="2"></textarea>
+
+    <label for="visuals">How did you find the graphics/art style?</label>
+    <textarea name="visuals" id="visuals" rows="2"></textarea>
+
+    <label for="audio">Was the audio/music appropriate and enjoyable?</label>
+    <textarea name="audio" id="audio" rows="2"></textarea>
+
+    <label for="bugs">Did you encounter any bugs or glitches? Please describe.</label>
+    <textarea name="bugs" id="bugs" rows="3"></textarea>
+
+    <label for="improvements">What would you improve or change?</label>
+    <textarea name="improvements" id="improvements" rows="3"></textarea>
+
+    <label for="replay">Would you play this game again? Why or why not?</label>
+    <textarea name="replay" id="replay" rows="3"></textarea>
+
+    <button type="submit">Submit Feedback</button>
+  </form>
+
+</body>
+</html>
