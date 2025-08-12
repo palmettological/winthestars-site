@@ -3,111 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win the Stars - Playtest Feedback</title>
+<title>Win the Stars Playtest Feedback</title>
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #0d0d0d;
+        background-color: #111;
         color: white;
         margin: 0;
         padding: 0;
     }
     .container {
-        max-width: 600px;
+        max-width: 500px;
         margin: 50px auto;
-        background-color: #1a1a1a;
+        background-color: #1b1b1b;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 20px rgba(51, 153, 255, 0.5);
-        box-sizing: border-box;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        box-sizing: border-box; /* fixes overflow issue */
     }
-    h1, h2 {
+    h1 {
         text-align: center;
         color: #3399ff;
     }
     label {
         display: block;
-        margin-top: 15px;
-        margin-bottom: 5px;
+        margin-top: 10px;
         font-weight: bold;
     }
-    input, textarea, select, button {
+    input, textarea {
         width: 100%;
         padding: 10px;
-        margin-bottom: 15px;
+        margin-top: 5px;
         border: none;
         border-radius: 5px;
-        box-sizing: border-box;
-    }
-    input, textarea, select {
-        background-color: #333;
-        color: white;
+        box-sizing: border-box; /* ensures padding doesn't overflow */
     }
     button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
         background-color: #3399ff;
+        border: none;
+        border-radius: 5px;
         color: white;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.2s ease;
     }
     button:hover {
-        background-color: #287acc;
+        background-color: #267acc;
     }
 </style>
 <script>
-    // Password protection
-    const password = "galaxy";
-    let userPass = prompt("Enter password to access this page:");
-    if (userPass !== password) {
-        document.write("<h1 style='color:white; text-align:center;'>Access Denied</h1>");
-        throw new Error("Access denied");
+    const password = "winthestars!";
+    const entered = sessionStorage.getItem("authenticated");
+
+    if (entered !== "true") {
+        const userPass = prompt("Enter the password:");
+        if (userPass !== password) {
+            alert("Incorrect password.");
+            window.location.href = "about:blank";
+        } else {
+            sessionStorage.setItem("authenticated", "true");
+        }
     }
 </script>
 </head>
 <body>
 <div class="container">
-    <h1>Win the Stars</h1>
-    <h2>Playtest Feedback</h2>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label for="name">Your Name (optional)</label>
-        <input type="text" id="name" name="name">
+    <h1>Win the Stars Playtest Feedback</h1>
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="email">Your Email (optional)</label>
-        <input type="email" id="email" name="email">
+        <label for="feedback">Feedback</label>
+        <textarea id="feedback" name="feedback" rows="5" required></textarea>
 
-        <label for="enjoyment">How much did you enjoy the game?</label>
-        <select id="enjoyment" name="enjoyment" required>
-            <option value="">-- Select --</option>
-            <option value="Loved it">Loved it</option>
-            <option value="Liked it">Liked it</option>
-            <option value="It was okay">It was okay</option>
-            <option value="Didn't like it">Didn't like it</option>
-        </select>
-
-        <label for="difficulty">How was the difficulty?</label>
-        <select id="difficulty" name="difficulty" required>
-            <option value="">-- Select --</option>
-            <option value="Too easy">Too easy</option>
-            <option value="Just right">Just right</option>
-            <option value="Too hard">Too hard</option>
-        </select>
-
-        <label for="favorite">What was your favorite part?</label>
-        <textarea id="favorite" name="favorite" rows="3"></textarea>
-
-        <label for="frustrating">What frustrated you the most?</label>
-        <textarea id="frustrating" name="frustrating" rows="3"></textarea>
-
-        <label for="bugs">Did you encounter any bugs?</label>
-        <textarea id="bugs" name="bugs" rows="3"></textarea>
-
-        <label for="suggestions">Any suggestions for improvement?</label>
-        <textarea id="suggestions" name="suggestions" rows="3"></textarea>
-
-        <label for="other">Anything else you'd like to share?</label>
-        <textarea id="other" name="other" rows="3"></textarea>
-
-        <button type="submit">Submit Feedback</button>
+        <button type="submit">Submit</button>
     </form>
 </div>
 </body>
