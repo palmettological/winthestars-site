@@ -3,84 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win the Stars Playtest Feedback</title>
+<title>Win the Stars - Playtest Feedback</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  .container {
-    background-color: #1a1a1a;
-    padding: 20px 30px; /* Increased right padding for symmetry */
-    border-radius: 8px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(51, 153, 255, 0.5);
-  }
-  h1 {
-    text-align: center;
-    color: #3399ff;
-  }
-  input, textarea, button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: none;
-    font-size: 14px;
-  }
-  input, textarea {
-    background-color: #222;
-    color: white;
-  }
-  button {
-    background-color: #3399ff;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  button:hover {
-    background-color: #267acc;
-  }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #0d0d0d;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(51, 153, 255, 0.5);
+        box-sizing: border-box;
+    }
+    h1, h2 {
+        text-align: center;
+        color: #3399ff;
+    }
+    label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input, textarea, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input, textarea, select {
+        background-color: #333;
+        color: white;
+    }
+    button {
+        background-color: #3399ff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    button:hover {
+        background-color: #287acc;
+    }
 </style>
 <script>
-  function checkPassword() {
-    const password = prompt("Enter the password to access this page:");
-    if (password !== "galaxy") {
-      alert("Incorrect password.");
-      window.location.href = "about:blank";
+    // Password protection
+    const password = "galaxy";
+    let userPass = prompt("Enter password to access this page:");
+    if (userPass !== password) {
+        document.write("<h1 style='color:white; text-align:center;'>Access Denied</h1>");
+        throw new Error("Access denied");
     }
-  }
-  window.onload = checkPassword;
 </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Playtest Feedback</h1>
+<div class="container">
+    <h1>Win the Stars</h1>
+    <h2>Playtest Feedback</h2>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <label for="name">Name (optional):</label>
-      <input type="text" id="name" name="name">
+        <label for="name">Your Name (optional)</label>
+        <input type="text" id="name" name="name">
 
-      <label for="enjoyment">What did you enjoy most?</label>
-      <textarea id="enjoyment" name="enjoyment" rows="3"></textarea>
+        <label for="email">Your Email (optional)</label>
+        <input type="email" id="email" name="email">
 
-      <label for="improvements">What could be improved?</label>
-      <textarea id="improvements" name="improvements" rows="3"></textarea>
+        <label for="enjoyment">How much did you enjoy the game?</label>
+        <select id="enjoyment" name="enjoyment" required>
+            <option value="">-- Select --</option>
+            <option value="Loved it">Loved it</option>
+            <option value="Liked it">Liked it</option>
+            <option value="It was okay">It was okay</option>
+            <option value="Didn't like it">Didn't like it</option>
+        </select>
 
-      <label for="bugs">Any bugs or issues?</label>
-      <textarea id="bugs" name="bugs" rows="3"></textarea>
+        <label for="difficulty">How was the difficulty?</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="">-- Select --</option>
+            <option value="Too easy">Too easy</option>
+            <option value="Just right">Just right</option>
+            <option value="Too hard">Too hard</option>
+        </select>
 
-      <label for="other">Other feedback:</label>
-      <textarea id="other" name="other" rows="3"></textarea>
+        <label for="favorite">What was your favorite part?</label>
+        <textarea id="favorite" name="favorite" rows="3"></textarea>
 
-      <button type="submit">Submit Feedback</button>
+        <label for="frustrating">What frustrated you the most?</label>
+        <textarea id="frustrating" name="frustrating" rows="3"></textarea>
+
+        <label for="bugs">Did you encounter any bugs?</label>
+        <textarea id="bugs" name="bugs" rows="3"></textarea>
+
+        <label for="suggestions">Any suggestions for improvement?</label>
+        <textarea id="suggestions" name="suggestions" rows="3"></textarea>
+
+        <label for="other">Anything else you'd like to share?</label>
+        <textarea id="other" name="other" rows="3"></textarea>
+
+        <button type="submit">Submit Feedback</button>
     </form>
-  </div>
+</div>
 </body>
 </html>
