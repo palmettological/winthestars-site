@@ -187,28 +187,32 @@
     </form>
   </div>
 
-  <script>
-    (function () {
-      const correctPassword = "galaxy";
-      function askPassword() {
-        const pass = prompt(
-          "Please enter the password to access the Win the Stars feedback form:"
-        );
-        if (pass === null) {
-          alert("Password is required to proceed.");
-          askPassword();
-        } else if (pass === correctPassword) {
-          document.getElementById("protected-content").style.display = "block";
-        } else {
-          alert("Incorrect password. Try again.");
-          askPassword();
-        }
+ <script>
+  (function () {
+    const correctPassword = "galaxy"; // change here if needed later
+
+    function askPassword() {
+      const pass = prompt(
+        "Please enter the password to access the Win the Stars feedback form:"
+      );
+
+      if (pass === null) {
+        alert("Password is required to proceed.");
+        askPassword();
+      } else if (pass.trim().toLowerCase() === correctPassword.toLowerCase()) {
+        document.getElementById("protected-content").style.display = "block";
+      } else {
+        alert("Incorrect password. Try again.");
+        askPassword();
       }
-      askPassword();
-    })();
-  </script>
+    }
+
+    askPassword();
+  })();
+</script>
 </body>
 </html>
+
 
 
 
